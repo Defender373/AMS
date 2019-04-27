@@ -12,6 +12,18 @@ Tim Treese
 Vatsal Bhagwani  
 2017:
 Nevin Jacob
+2019:
+Gregory Saini (Fixed Version 2.1's cancel bug) (Added Transfer Value function to AMS)
+
+## Requirements
+User should have at least JDK 11.0 (preferably the latest JDK) to run this program properly.
+
+## How to run (Windows 10)
+1. Navigate to your AMS folder in your terminal
+
+2. Run `ams_build` in your command terminal
+
+3. Run `ams` in your command terminal
 
 ## About
 ---VERSION 3.1 RELEASE NOTES--------------------------------------
