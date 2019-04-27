@@ -12,9 +12,7 @@ Tim Treese
 Vatsal Bhagwani  
 2017:
 Nevin Jacob
-
-2019:
-Gregory Saini (Fixed Version 2.1's cancel bug) (Added Transfer Value function to AMS)
+2019: Gregory Saini (Fixed Version 2.1's cancel bug) (Added Transfer Value function to AMS)
 
 ## Requirements
 User should have at least JDK 11.0 (preferably the latest JDK) to run this program properly.
