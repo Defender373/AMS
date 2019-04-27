@@ -2,16 +2,22 @@
 ## Authors
 2006:
 Stan Bak  
+
 2010:
 Matthew Turnbull  
+
 2012:
 Martin Papesh  
+
 2013:
 Tim Treese
+
 2015:
 Vatsal Bhagwani  
+
 2017:
 Nevin Jacob
+
 2019: Gregory Saini (Fixed Version 2.1's cancel bug) (Added Transfer Value function to AMS)
 
 ## Requirements
