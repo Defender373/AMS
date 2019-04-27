@@ -12,6 +12,7 @@ Tim Treese
 Vatsal Bhagwani  
 2017:
 Nevin Jacob
+
 2019:
 Gregory Saini (Fixed Version 2.1's cancel bug) (Added Transfer Value function to AMS)
 
