@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.2" class="java.beans.XMLDecoder">
+ <object class="abacus.FileData" id="FileData0"/>
+<void class="java.awt.Point" method="getField">
+ <string>x</string>
+ <void method="set">
+  <void class="abacus.Node" id="Node0">
+   <void id="Point0" property="location">
+    <void class="java.awt.Point" method="getField">
+     <string>y</string>
+     <void method="set">
+      <object idref="Point0"/>
+      <int>336</int>
+     </void>
+    </void>
+   </void>
+   <void property="out">
+    <object class="abacus.Node" id="Node1">
+     <void id="Point1" property="location">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point1"/>
+        <int>76</int>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point1"/>
+        <int>329</int>
+       </void>
+      </void>
+     </void>
+     <void property="out">
+      <object class="abacus.Node" id="Node2">
+       <void id="Point2" property="location">
+        <void class="java.awt.Point" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="Point2"/>
+          <int>66</int>
+         </void>
+        </void>
+        <void class="java.awt.Point" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="Point2"/>
+          <int>442</int>
+         </void>
+        </void>
+       </void>
+       <void property="out">
+        <object class="abacus.Node" id="Node3">
+         <void id="Point3" property="location">
+          <void class="java.awt.Point" method="getField">
+           <string>x</string>
+           <void method="set">
+            <object idref="Point3"/>
+            <int>198</int>
+           </void>
+          </void>
+          <void class="java.awt.Point" method="getField">
+           <string>y</string>
+           <void method="set">
+            <object idref="Point3"/>
+            <int>449</int>
+           </void>
+          </void>
+         </void>
+         <void property="out">
+          <object idref="Node0"/>
+         </void>
+         <void property="plus">
+          <boolean>true</boolean>
+         </void>
+         <void property="register">
+          <int>7</int>
+         </void>
+        </object>
+       </void>
+       <void property="outEmpty">
+        <object class="abacus.Node" id="Node4">
+         <void id="Point4" property="location">
+          <void class="java.awt.Point" method="getField">
+           <string>x</string>
+           <void method="set">
+            <object idref="Point4"/>
+            <int>59</int>
+           </void>
+          </void>
+          <void class="java.awt.Point" method="getField">
+           <string>y</string>
+           <void method="set">
+            <object idref="Point4"/>
+            <int>631</int>
+           </void>
+          </void>
+         </void>
+         <void property="out">
+          <object class="abacus.Node" id="Node5">
+           <void id="Point5" property="location">
+            <void class="java.awt.Point" method="getField">
+             <string>x</string>
+             <void method="set">
+              <object idref="Point5"/>
+              <int>273</int>
+             </void>
+            </void>
+            <void class="java.awt.Point" method="getField">
+             <string>y</string>
+             <void method="set">
+              <object idref="Point5"/>
+              <int>634</int>
+             </void>
+            </void>
+           </void>
+           <void property="out">
+            <object class="abacus.Node" id="Node6">
+             <void id="Point6" property="location">
+              <void class="java.awt.Point" method="getField">
+               <string>x</string>
+               <void method="set">
+                <object idref="Point6"/>
+                <int>202</int>
+               </void>
+              </void>
+              <void class="java.awt.Point" method="getField">
+               <string>y</string>
+               <void method="set">
+                <object idref="Point6"/>
+                <int>715</int>
+               </void>
+              </void>
+             </void>
+             <void property="out">
+              <object class="abacus.Node" id="Node7">
+               <void id="Point7" property="location">
+                <void class="java.awt.Point" method="getField">
+                 <string>x</string>
+                 <void method="set">
+                  <object idref="Point7"/>
+                  <int>333</int>
+                 </void>
+                </void>
+                <void class="java.awt.Point" method="getField">
+                 <string>y</string>
+                 <void method="set">
+                  <object idref="Point7"/>
+                  <int>721</int>
+                 </void>
+                </void>
+               </void>
+               <void property="out">
+                <object idref="Node5"/>
+               </void>
+               <void property="plus">
+                <boolean>true</boolean>
+               </void>
+               <void property="register">
+                <int>5</int>
+               </void>
+              </object>
+             </void>
+             <void property="plus">
+              <boolean>true</boolean>
+             </void>
+             <void property="register">
+              <int>4</int>
+             </void>
+            </object>
+           </void>
+           <void property="outEmpty">
+            <object class="abacus.Node" id="Node8">
+             <void id="Point8" property="location">
+              <void class="java.awt.Point" method="getField">
+               <string>x</string>
+               <void method="set">
+                <object idref="Point8"/>
+                <int>487</int>
+               </void>
+              </void>
+              <void class="java.awt.Point" method="getField">
+               <string>y</string>
+               <void method="set">
+                <object idref="Point8"/>
+                <int>637</int>
+               </void>
+              </void>
+             </void>
+             <void property="out">
+              <object class="abacus.Node" id="Node9">
+               <void id="Point9" property="location">
+                <void class="java.awt.Point" method="getField">
+                 <string>x</string>
+                 <void method="set">
+                  <object idref="Point9"/>
+                  <int>677</int>
+                 </void>
+                </void>
+                <void class="java.awt.Point" method="getField">
+                 <string>y</string>
+                 <void method="set">
+                  <object idref="Point9"/>
+                  <int>575</int>
+                 </void>
+                </void>
+               </void>
+               <void property="out">
+                <object class="abacus.Node" id="Node10">
+                 <void id="Point10" property="location">
+                  <void class="java.awt.Point" method="getField">
+                   <string>x</string>
+                   <void method="set">
+                    <object idref="Point10"/>
+                    <int>690</int>
+                   </void>
+                  </void>
+                  <void class="java.awt.Point" method="getField">
+                   <string>y</string>
+                   <void method="set">
+                    <object idref="Point10"/>
+                    <int>467</int>
+                   </void>
+                  </void>
+                 </void>
+                 <void property="out">
+                  <object idref="Node9"/>
+                 </void>
+                 <void property="plus">
+                  <boolean>true</boolean>
+                 </void>
+                 <void property="register">
+                  <int>2</int>
+                 </void>
+                </object>
+               </void>
+               <void property="outEmpty">
+                <object class="abacus.Node" id="Node11">
+                 <void id="Point11" property="location">
+                  <void class="java.awt.Point" method="getField">
+                   <string>x</string>
+                   <void method="set">
+                    <object idref="Point11"/>
+                    <int>178</int>
+                   </void>
+                  </void>
+                  <void class="java.awt.Point" method="getField">
+                   <string>y</string>
+                   <void method="set">
+                    <object idref="Point11"/>
+                    <int>104</int>
+                   </void>
+                  </void>
+                 </void>
+                 <void property="out">
+                  <object class="abacus.Node" id="Node12">
+                   <void id="Point12" property="location">
+                    <void class="java.awt.Point" method="getField">
+                     <string>x</string>
+                     <void method="set">
+                      <object idref="Point12"/>
+                      <int>94</int>
+                     </void>
+                    </void>
+                    <void class="java.awt.Point" method="getField">
+                     <string>y</string>
+                     <void method="set">
+                      <object idref="Point12"/>
+                      <int>175</int>
+                     </void>
+                    </void>
+                   </void>
+                   <void property="out">
+                    <object class="abacus.Node" id="Node13">
+                     <void id="Point13" property="location">
+                      <void class="java.awt.Point" method="getField">
+                       <string>x</string>
+                       <void method="set">
+                        <object idref="Point13"/>
+                        <int>152</int>
+                       </void>
+                      </void>
+                      <void class="java.awt.Point" method="getField">
+                       <string>y</string>
+                       <void method="set">
+                        <object idref="Point13"/>
+                        <int>248</int>
+                       </void>
+                      </void>
+                     </void>
+                     <void property="out">
+                      <object idref="Node1"/>
+                     </void>
+                     <void property="outEmpty">
+                      <object class="abacus.Node" id="Node14">
+                       <void id="Point14" property="location">
+                        <void class="java.awt.Point" method="getField">
+                         <string>x</string>
+                         <void method="set">
+                          <object idref="Point14"/>
+                          <int>279</int>
+                         </void>
+                        </void>
+                        <void class="java.awt.Point" method="getField">
+                         <string>y</string>
+                         <void method="set">
+                          <object idref="Point14"/>
+                          <int>253</int>
+                         </void>
+                        </void>
+                       </void>
+                       <void property="out">
+                        <object class="abacus.Node" id="Node15">
+                         <void id="Point15" property="location">
+                          <void class="java.awt.Point" method="getField">
+                           <string>x</string>
+                           <void method="set">
+                            <object idref="Point15"/>
+                            <int>271</int>
+                           </void>
+                          </void>
+                          <void class="java.awt.Point" method="getField">
+                           <string>y</string>
+                           <void method="set">
+                            <object idref="Point15"/>
+                            <int>394</int>
+                           </void>
+                          </void>
+                         </void>
+                         <void property="out">
+                          <object class="abacus.Node" id="Node16">
+                           <void id="Point16" property="location">
+                            <void class="java.awt.Point" method="getField">
+                             <string>x</string>
+                             <void method="set">
+                              <object idref="Point16"/>
+                              <int>264</int>
+                             </void>
+                            </void>
+                            <void class="java.awt.Point" method="getField">
+                             <string>y</string>
+                             <void method="set">
+                              <object idref="Point16"/>
+                              <int>562</int>
+                             </void>
+                            </void>
+                           </void>
+                           <void property="out">
+                            <object class="abacus.Node" id="Node17">
+                             <void id="Point17" property="location">
+                              <void class="java.awt.Point" method="getField">
+                               <string>x</string>
+                               <void method="set">
+                                <object idref="Point17"/>
+                                <int>416</int>
+                               </void>
+                              </void>
+                              <void class="java.awt.Point" method="getField">
+                               <string>y</string>
+                               <void method="set">
+                                <object idref="Point17"/>
+                                <int>572</int>
+                               </void>
+                              </void>
+                             </void>
+                             <void property="out">
+                              <object class="abacus.Node" id="Node18">
+                               <void id="Point18" property="location">
+                                <void class="java.awt.Point" method="getField">
+                                 <string>x</string>
+                                 <void method="set">
+                                  <object idref="Point18"/>
+                                  <int>429</int>
+                                 </void>
+                                </void>
+                                <void class="java.awt.Point" method="getField">
+                                 <string>y</string>
+                                 <void method="set">
+                                  <object idref="Point18"/>
+                                  <int>476</int>
+                                 </void>
+                                </void>
+                               </void>
+                               <void property="out">
+                                <object idref="Node17"/>
+                               </void>
+                               <void property="plus">
+                                <boolean>true</boolean>
+                               </void>
+                               <void property="register">
+                                <int>5</int>
+                               </void>
+                              </object>
+                             </void>
+                             <void property="outEmpty">
+                              <object idref="Node9"/>
+                             </void>
+                             <void property="register">
+                              <int>7</int>
+                             </void>
+                            </object>
+                           </void>
+                           <void property="plus">
+                            <boolean>true</boolean>
+                           </void>
+                           <void property="register">
+                            <int>3</int>
+                           </void>
+                          </object>
+                         </void>
+                         <void property="plus">
+                          <boolean>true</boolean>
+                         </void>
+                        </object>
+                       </void>
+                       <void property="register">
+                        <int>7</int>
+                       </void>
+                      </object>
+                     </void>
+                     <void property="register">
+                      <int>2</int>
+                     </void>
+                    </object>
+                   </void>
+                   <void property="plus">
+                    <boolean>true</boolean>
+                   </void>
+                   <void property="register">
+                    <int>7</int>
+                   </void>
+                  </object>
+                 </void>
+                 <void property="outEmpty">
+                  <object class="abacus.Node" id="Node19">
+                   <void id="Point19" property="location">
+                    <void class="java.awt.Point" method="getField">
+                     <string>x</string>
+                     <void method="set">
+                      <object idref="Point19"/>
+                      <int>317</int>
+                     </void>
+                    </void>
+                    <void class="java.awt.Point" method="getField">
+                     <string>y</string>
+                     <void method="set">
+                      <object idref="Point19"/>
+                      <int>109</int>
+                     </void>
+                    </void>
+                   </void>
+                   <void property="out">
+                    <object class="abacus.Node" id="Node20">
+                     <void id="Point20" property="location">
+                      <void class="java.awt.Point" method="getField">
+                       <string>x</string>
+                       <void method="set">
+                        <object idref="Point20"/>
+                        <int>492</int>
+                       </void>
+                      </void>
+                      <void class="java.awt.Point" method="getField">
+                       <string>y</string>
+                       <void method="set">
+                        <object idref="Point20"/>
+                        <int>120</int>
+                       </void>
+                      </void>
+                     </void>
+                     <void property="out">
+                      <object idref="Node19"/>
+                     </void>
+                     <void property="plus">
+                      <boolean>true</boolean>
+                     </void>
+                    </object>
+                   </void>
+                   <void property="register">
+                    <int>5</int>
+                   </void>
+                  </object>
+                 </void>
+                </object>
+               </void>
+               <void property="register">
+                <int>6</int>
+               </void>
+              </object>
+             </void>
+             <void property="plus">
+              <boolean>true</boolean>
+             </void>
+             <void property="register">
+              <int>2</int>
+             </void>
+            </object>
+           </void>
+           <void property="register">
+            <int>7</int>
+           </void>
+          </object>
+         </void>
+         <void property="outEmpty">
+          <object idref="Node16"/>
+         </void>
+         <void property="register">
+          <int>2</int>
+         </void>
+        </object>
+       </void>
+       <void id="Integer0" property="register"/>
+      </object>
+     </void>
+     <void property="plus">
+      <boolean>true</boolean>
+     </void>
+     <void property="register">
+      <int>6</int>
+     </void>
+    </object>
+   </void>
+   <void property="outEmpty">
+    <object idref="Node14"/>
+   </void>
+   <void property="register">
+    <int>2</int>
+   </void>
+  </void>
+  <object idref="Point0"/>
+  <int>206</int>
+ </void>
+</void>
+<void class="abacus.Node" id="Node21">
+ <void id="Point21" property="location">
+  <void class="java.awt.Point" method="getField">
+   <string>x</string>
+   <void method="set">
+    <object idref="Point21"/>
+    <int>-7</int>
+   </void>
+  </void>
+  <void class="java.awt.Point" method="getField">
+   <string>y</string>
+   <void method="set">
+    <object idref="Point21"/>
+    <int>41</int>
+   </void>
+  </void>
+ </void>
+ <void property="out">
+  <object class="abacus.Node" id="Node22">
+   <void id="Point22" property="location">
+    <void class="java.awt.Point" method="getField">
+     <string>x</string>
+     <void method="set">
+      <object idref="Point22"/>
+      <int>77</int>
+     </void>
+    </void>
+    <void class="java.awt.Point" method="getField">
+     <string>y</string>
+     <void method="set">
+      <object idref="Point22"/>
+      <int>54</int>
+     </void>
+    </void>
+   </void>
+   <void property="out">
+    <object idref="Node11"/>
+   </void>
+   <void property="plus">
+    <boolean>true</boolean>
+   </void>
+   <void property="register">
+    <int>2</int>
+   </void>
+  </object>
+ </void>
+ <void property="outEmpty">
+  <object class="abacus.Node" id="Node23">
+   <void id="Point23" property="location">
+    <void class="java.awt.Point" method="getField">
+     <string>x</string>
+     <void method="set">
+      <object idref="Point23"/>
+      <int>-86</int>
+     </void>
+    </void>
+    <void class="java.awt.Point" method="getField">
+     <string>y</string>
+     <void method="set">
+      <object idref="Point23"/>
+      <int>129</int>
+     </void>
+    </void>
+   </void>
+   <void property="out">
+    <object class="abacus.Node" id="Node24">
+     <void id="Point24" property="location">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point24"/>
+        <int>-99</int>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point24"/>
+        <int>237</int>
+       </void>
+      </void>
+     </void>
+     <void property="out">
+      <object idref="Node23"/>
+     </void>
+     <void property="plus">
+      <boolean>true</boolean>
+     </void>
+     <void property="register">
+      <int>5</int>
+     </void>
+    </object>
+   </void>
+   <void property="outEmpty">
+    <object class="abacus.Node" id="Node25">
+     <void id="Point25" property="location">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point25"/>
+        <object idref="Integer0"/>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point25"/>
+        <int>142</int>
+       </void>
+      </void>
+     </void>
+     <void property="out">
+      <object class="abacus.Node" id="Node26">
+       <void id="Point26" property="location">
+        <void class="java.awt.Point" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="Point26"/>
+          <int>-77</int>
+         </void>
+        </void>
+        <void class="java.awt.Point" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="Point26"/>
+          <int>319</int>
+         </void>
+        </void>
+       </void>
+       <void property="out">
+        <object class="abacus.Node" id="Node27">
+         <void id="Point27" property="location">
+          <void class="java.awt.Point" method="getField">
+           <string>x</string>
+           <void method="set">
+            <object idref="Point27"/>
+            <int>4</int>
+           </void>
+          </void>
+          <void class="java.awt.Point" method="getField">
+           <string>y</string>
+           <void method="set">
+            <object idref="Point27"/>
+            <int>330</int>
+           </void>
+          </void>
+         </void>
+         <void property="out">
+          <object idref="Node25"/>
+         </void>
+         <void property="plus">
+          <boolean>true</boolean>
+         </void>
+         <void property="register">
+          <int>4</int>
+         </void>
+        </object>
+       </void>
+       <void property="plus">
+        <boolean>true</boolean>
+       </void>
+      </object>
+     </void>
+     <void property="register">
+      <int>5</int>
+     </void>
+    </object>
+   </void>
+  </object>
+ </void>
+ <void property="register">
+  <int>2</int>
+ </void>
+ <void property="initialState">
+  <boolean>true</boolean>
+ </void>
+</void>
+<void class="abacus.FileData" id="Field0" method="getField">
+ <string>nodes</string>
+ <void id="ArrayList0" method="get">
+  <object idref="FileData0"/>
+  <void method="add">
+   <object idref="Node13"/>
+  </void>
+  <void method="add">
+   <object idref="Node15"/>
+  </void>
+  <void method="add">
+   <object idref="Node2"/>
+  </void>
+  <void method="add">
+   <object idref="Node12"/>
+  </void>
+  <void method="add">
+   <object idref="Node1"/>
+  </void>
+  <void method="add">
+   <object idref="Node19"/>
+  </void>
+  <void method="add">
+   <object idref="Node20"/>
+  </void>
+  <void method="add">
+   <object idref="Node3"/>
+  </void>
+  <void method="add">
+   <object idref="Node16"/>
+  </void>
+  <void method="add">
+   <object idref="Node9"/>
+  </void>
+  <void method="add">
+   <object idref="Node10"/>
+  </void>
+  <void method="add">
+   <object idref="Node14"/>
+  </void>
+  <void method="add">
+   <object idref="Node0"/>
+  </void>
+  <void method="add">
+   <object idref="Node4"/>
+  </void>
+  <void method="add">
+   <object idref="Node8"/>
+  </void>
+  <void method="add">
+   <object idref="Node17"/>
+  </void>
+  <void method="add">
+   <object idref="Node18"/>
+  </void>
+  <void method="add">
+   <object idref="Node5"/>
+  </void>
+  <void method="add">
+   <object idref="Node6"/>
+  </void>
+  <void method="add">
+   <object idref="Node7"/>
+  </void>
+  <void method="add">
+   <object idref="Node11"/>
+  </void>
+  <void method="add">
+   <object idref="Node22"/>
+  </void>
+  <void method="add">
+   <object idref="Node23"/>
+  </void>
+  <void method="add">
+   <object idref="Node24"/>
+  </void>
+  <void method="add">
+   <object idref="Node25"/>
+  </void>
+  <void method="add">
+   <object idref="Node26"/>
+  </void>
+  <void method="add">
+   <object idref="Node27"/>
+  </void>
+  <void method="add">
+   <object idref="Node21"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList0"/>
+</java>

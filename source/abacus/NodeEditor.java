@@ -46,20 +46,21 @@ public class NodeEditor extends JFrame implements ActionListener
 	JMenuItem export_xml = new JMenuItem("Export OwenTMS XML");
 	JMenuItem export_tm = new JMenuItem("Export OwenTMS TM");
 	JMenuItem close = new JMenuItem("Close All");
-	
+
 	ArrayList<JMenuItem> regSet = new ArrayList<JMenuItem>();
-	
+
 	JMenuItem help = new JMenuItem("Help");
-	
-	
-	JMenuItem[] items = { newMachine, saveMachine, loadMachine, importMachine, importRegisters, export_xml, export_tm, close, help}; 
-	
+
+
+	JMenuItem[] items = { newMachine, saveMachine, loadMachine, importMachine, importRegisters, export_xml, export_tm, close, help};
+
 	// buttons
 	static Image imageAdd = makeRedTransparent(new ImageIcon("images/imageAdd.GIF").getImage());
 	static Image imageSub = makeRedTransparent(new ImageIcon("images/imageSub.GIF").getImage());
 	static Image imageMod = makeRedTransparent(new ImageIcon("images/imageMod.GIF").getImage());
 	static Image imageDel = makeRedTransparent(new ImageIcon("images/imageDel.GIF").getImage());
-	
+	static Image imageTransfer = makeRedTransparent(new ImageIcon("images/imageTransfer.GIF").getImage());
+
 	// other images
 	static Image pause = makeRedTransparent(new ImageIcon("images/Pause.PNG").getImage());
 	static Image resetAll = makeRedTransparent(new ImageIcon("images/ResetAll.PNG").getImage());
@@ -68,39 +69,41 @@ public class NodeEditor extends JFrame implements ActionListener
 	static Image playMultiple = makeRedTransparent(new ImageIcon("images/PlayMultiple.PNG").getImage());
 	static Image fastForward = makeRedTransparent(new ImageIcon("images/FastForward.PNG").getImage());
 	static Image step = makeRedTransparent(new ImageIcon("images/Step.PNG").getImage());
-	
+
 	static Image transAdd = makeHazy(imageAdd);
 	static Image transSub = makeHazy(imageSub);
 	static Image transDel = makeHazy(imageDel);
-	
+	static Image transTransfer = makeHazy(imageTransfer);
+
 	public final static Color babyBlue = new Color(67,203,255);
-	
+
 	JToggleButton addState = new JToggleButton(new ImageIcon(imageAdd));
 	JToggleButton subState = new JToggleButton(new ImageIcon(imageSub));
 	JToggleButton modState = new JToggleButton(new ImageIcon(imageMod));
 	JToggleButton delState = new JToggleButton(new ImageIcon(imageDel));
-	
+	JToggleButton transferState = new JToggleButton(new ImageIcon(imageTransfer));
+
 	boolean locked = false;
 	JPanel north, west, south;
 	private final static String TITLE = "Abacus Machine Simulator";
-	
+
 	// switched creation of reg editor and macpanel to allow register count to update whenever new node is added
-	
+
 	// Register editor
 	RegisterEditor re = new RegisterEditor(this);
 
 	// machine panel
 	MachinePanel macPanel = new MachinePanel(this,re);
-	
+
 	// Simluator
 	Simulator simulator = new Simulator(this, re);
-	
 
-	
+
+
 	public NodeEditor()
 	{
 		setTitle(TITLE);
-		
+
 		// menu bar
 		JMenuBar menuBar = new JMenuBar();
 		JMenu file = new JMenu("File");
@@ -127,37 +130,38 @@ public class NodeEditor extends JFrame implements ActionListener
 		JMenu helpMenu = new JMenu("Help");
 		helpMenu.add(help);
 		menuBar.add(helpMenu);
-		
+
 		this.setJMenuBar(menuBar);
-		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
-		for (int x = 0; x < items.length; ++x)		
+		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+
+		for (int x = 0; x < items.length; ++x)
 			items[x].addActionListener(this);
-		
+
 		// layout
 		setLayout(new BorderLayout());
-		
+
 		// buttons
-		ButtonGroup bg = new ButtonGroup(); 
+		ButtonGroup bg = new ButtonGroup();
 		bg.add(modState);
 		bg.add(addState);
 		bg.add(subState);
 		bg.add(delState);
-		
+		bg.add(transferState);
+
 		north = new JPanel();
 		BorderLayout nbl = new BorderLayout();
 		north.setLayout(nbl);
 		north.add(simulator,BorderLayout.CENTER);
-		
+
 		west = new JPanel();
 		BoxLayout bw = new BoxLayout(west, BoxLayout.PAGE_AXIS);
 		west.setLayout(bw);
-		
+
 		south = new JPanel();
 		BorderLayout sbl = new BorderLayout();
 		south.setLayout(sbl);
 		south.add(re,BorderLayout.CENTER);
-		
+
 		modState.setSelected(true);
 		modState.setToolTipText("Modify States");
 		west.add(modState);
@@ -167,18 +171,21 @@ public class NodeEditor extends JFrame implements ActionListener
 		west.add(subState);
 		delState.setToolTipText("Delete States");
 		west.add(delState);
-		
+		transferState.setToolTipText("Transfer State");
+		west.add(transferState);
+
+
 		west.setBackground(babyBlue);
 		add(north,BorderLayout.NORTH);
 		add(west,BorderLayout.WEST);
 		add(macPanel,BorderLayout.CENTER);
 		add(south,BorderLayout.SOUTH);
-		
+
 		pack();
-		
-		addWindowListener(new WindowAdapter() 
+
+		addWindowListener(new WindowAdapter()
 				{
-			    	public void windowClosing(WindowEvent we) 
+			    	public void windowClosing(WindowEvent we)
 			    	{
 			    		if (confirmClose())
 			    		{
@@ -198,30 +205,36 @@ public class NodeEditor extends JFrame implements ActionListener
 			    	}
 				});
 	}
-	
+
 	public int getNumRegSets()
 	{
 	    return numRegSets;
 	}
-	
+
 	public boolean confirmClose()
 	{
 		boolean rv = false;
-// FAULTY CODE FOR "CANCEL" OPTION IS REMOVED VIA COMMENT. SEE README.TXT FOR EXPLANATION		
-//		Object[] options = {"Save Abacus Machine",
-//        "Close Window", "Cancel"};
+// FAULTY CODE FOR "CANCEL" OPTION IS REMOVED VIA COMMENT. SEE README.TXT FOR EXPLANATION
 		Object[] options = {"Save Abacus Machine",
-        "Close Window"};
+       "Close Window", "Cancel"};
+		// Object[] options = {"Save Abacus Machine",
+    //     "Close Window"};
 		int n = JOptionPane.showOptionDialog(this,
 			"Would you like to save your Abacus Machine?",
 			"Save Query",
-//			JOptionPane.YES_NO_CANCEL_OPTION,
-			JOptionPane.YES_NO_OPTION,
+			JOptionPane.YES_NO_CANCEL_OPTION,
+//			JOptionPane.YES_NO_OPTION,
 			JOptionPane.QUESTION_MESSAGE,
 			null,     //don't use a custom Icon
 			options,  //the titles of buttons
 			options[0]); //default button title
-		
+			System.out.println(n);
+			try {
+				Thread.sleep(5000);
+			} catch(InterruptedException ex) {
+				Thread.currentThread().interrupt();
+			}
+
 		if (n == JOptionPane.YES_OPTION)
 		{
 			try {
@@ -234,12 +247,12 @@ public class NodeEditor extends JFrame implements ActionListener
 				// this should unlock it
 				saveMachine.setVisible(false);
 			}
-			
+
 			FileData fd = new FileData();
 			fd.setNodes(macPanel.nodes);
 			fd.setRegs(re.regs);
 			fd.setComments(macPanel.comments);
-			
+
 			fd.save();
 			rv = true;
 		}
@@ -247,33 +260,35 @@ public class NodeEditor extends JFrame implements ActionListener
 		{
 			rv = true;
 		}
-/*		else if (n == JOptionPane.CANCEL_OPTION)
+		else if (n == JOptionPane.CANCEL_OPTION)
 		{
 			rv=false;
-		}*/
+		}
 		return rv;
 	}
-	
+
 	public static final int STATE_ADD = 0;
 	public static final int STATE_SUB = 1;
 	public static final int STATE_MOD = 2;
 	public static final int STATE_DEL = 3;
-	
+	public static final int STATE_TRANS = 4;
+
 	// get the state of the togglebuttons
 	public int getState()
 	{
 		int rv = STATE_MOD;
-		
+
 		if (addState.isSelected())
 			rv = STATE_ADD;
 		else if (subState.isSelected())
 			rv = STATE_SUB;
 		else if (delState.isSelected())
 			rv = STATE_DEL;
-		
+		else if (transferState.isSelected())
+			rv = STATE_TRANS;
 		return rv;
 	}
-	
+
 	public void nextButton()
 	{
 		if (addState.isSelected())
@@ -282,20 +297,22 @@ public class NodeEditor extends JFrame implements ActionListener
 			modState.doClick();
 		else if (modState.isSelected())
 			delState.doClick();
+		else if (delState.isSelected())
+			transferState.doClick();
 		else
 			addState.doClick();
 	}
-	
+
 	public static Image makeRedTransparent(Image source)
 	{
 		return makeTransparent(source,Color.red);
 	}
-	
+
 	public void clearSelection()
 	{
 		macPanel.clearSelection();
 	}
-	
+
 	public static Image makeTransparent(Image source, Color c)
 	{
 		int w = source.getWidth(null);
@@ -309,12 +326,12 @@ public class NodeEditor extends JFrame implements ActionListener
 				int color = cols[x + y * w];
 
 				int[] rgb = getRGB(color);
-				
-				if (Math.abs(rgb[0] - c.getRed()) < 5 && 
-					Math.abs(rgb[1] - c.getGreen()) < 5 && 
+
+				if (Math.abs(rgb[0] - c.getRed()) < 5 &&
+					Math.abs(rgb[1] - c.getGreen()) < 5 &&
 					Math.abs(rgb[2] - c.getBlue()) < 5)
-				{ // red					
-						
+				{ // red
+
 					cols[x + y * w] = 0;
 				}
 				else
@@ -326,7 +343,7 @@ public class NodeEditor extends JFrame implements ActionListener
 				w));
 
 	}
-	
+
 	public static Image makeHazy(Image source)
 	{
 		int w = source.getWidth(null);
@@ -345,14 +362,14 @@ public class NodeEditor extends JFrame implements ActionListener
 					cols[x + y * w] = (96 << 24) | (rgb[0] << 16)
 					| (rgb[1] << 8) | rgb[2];
 				}
-					
+
 			}
 
 		return (new JPanel()).createImage(new MemoryImageSource(w, h, cols, 0,
 				w));
 
 	}
-	
+
 	public static int[] getAllColors(Image theImage)
 	{
 		int w = theImage.getWidth(null);
@@ -393,14 +410,14 @@ public class NodeEditor extends JFrame implements ActionListener
 
 		return rgb;
 	}
-	
+
 	public void lock()
 	{
 		locked = true;
 		macPanel.lock();
 		setTitle(TITLE + " (locked)");
 	}
-	
+
 	public void unlock()
 	{
 		locked = false;
@@ -408,20 +425,20 @@ public class NodeEditor extends JFrame implements ActionListener
 		north.setVisible(true);
 		setTitle(TITLE);
 	}
-		
+
 	public NodeEditor newWindow()
 	{
 		NodeEditor ne = new NodeEditor();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		ne.setLocation(screenSize.width / 2 - 300,50);
-		
+
 		ne.setVisible(true);
 		return ne;
 	}
-	
+
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getSource() == newMachine) 
+		if (e.getSource() == newMachine)
 		{
 			this.setVisible(true);
 			newWindow();
@@ -445,17 +462,17 @@ public class NodeEditor extends JFrame implements ActionListener
 		else if (e.getSource() == loadMachine)
 		{
 			FileData fd = new FileData();
-			
+
 			if (fd.load())
 			{
 				NodeEditor ne = newWindow();
-				
+
 				ne.macPanel.nodes = fd.getNodes();
 				ne.re.regs = fd.getRegs();
 				ne.re.regInputNum = fd.getRegInput();
 				ne.re.otherRegs = fd.getOtherRegs();
 				ne.macPanel.comments = fd.getComments();
-				ne.simulator.setInputNumberText();
+				//ne.simulator.setInputNumberText();
 				ne.repaint();
 				ne.re.repaint();
 			}
@@ -463,9 +480,9 @@ public class NodeEditor extends JFrame implements ActionListener
 		else if (e.getSource() == importMachine)
 		{
 			FileData fd = new FileData();
-			
+
 			if (fd.load())
-			{				
+			{
                 JPanel ynregPanel = new JPanel();
                 JPanel regPanel = new JPanel();
                 ArrayList<JTextField> regfields = new ArrayList<JTextField>();
@@ -474,7 +491,7 @@ public class NodeEditor extends JFrame implements ActionListener
                 JTextField numremapfield = new JTextField(5);
                 ynregPanel.add(new JLabel("How many?"));
                 ynregPanel.add(numremapfield);
-                int result = JOptionPane.showConfirmDialog(null, ynregPanel, 
+                int result = JOptionPane.showConfirmDialog(null, ynregPanel,
                     "Would you like to remap registers?", JOptionPane.OK_CANCEL_OPTION);
                 boolean rem = true;
                 if (result == JOptionPane.OK_OPTION) {
@@ -492,7 +509,7 @@ public class NodeEditor extends JFrame implements ActionListener
                         }
                         catch(Exception exc)
                         {
-                            result = JOptionPane.showConfirmDialog(null, ynregPanel, 
+                            result = JOptionPane.showConfirmDialog(null, ynregPanel,
                                 "Please enter a valid integer.\nWould you still like to remap registers?", JOptionPane.OK_CANCEL_OPTION);
                         }
                     }
@@ -508,16 +525,16 @@ public class NodeEditor extends JFrame implements ActionListener
                             regPanel.add(Box.createHorizontalStrut(15)); // a spacer
                         }
 			        }
-			        result = JOptionPane.showConfirmDialog(null, regPanel, 
+			        result = JOptionPane.showConfirmDialog(null, regPanel,
                         "Please enter the new register numbers", JOptionPane.OK_CANCEL_OPTION);
                     rem = false;
                     if (result == JOptionPane.OK_OPTION) {
                         while (result == JOptionPane.OK_OPTION && !rem)
-                        {   
+                        {
                             try
                             {
 			                    for (int i = 0 ; i < numremap; i++)
-			                    {       
+			                    {
 			                        int remapnum = Integer.parseInt(remapfields.get(i).getText());
 			                        int regnum = -1;
 			                        String regstr = regfields.get(i).getText().toLowerCase();
@@ -536,13 +553,13 @@ public class NodeEditor extends JFrame implements ActionListener
                             catch(Exception exc)
                             {
                                 remapregs = new HashMap<Integer, Integer>();
-                                result = JOptionPane.showConfirmDialog(null, regPanel, 
+                                result = JOptionPane.showConfirmDialog(null, regPanel,
                                     "Please enter valid values.", JOptionPane.OK_CANCEL_OPTION);
                             }
                         }
                     }
                     if (!rem && result != JOptionPane.OK_OPTION) {
-                        result = JOptionPane.showConfirmDialog(null, ynregPanel, 
+                        result = JOptionPane.showConfirmDialog(null, ynregPanel,
                             "Would you like to remap registers?", JOptionPane.OK_CANCEL_OPTION);
                         regfields = new ArrayList<JTextField>();
                         remapfields = new ArrayList<JTextField>();
@@ -551,7 +568,7 @@ public class NodeEditor extends JFrame implements ActionListener
                         numremap = 0;
                     }
                 }
-			
+
                 HashMap<Integer, Boolean> usedregs = new HashMap<Integer, Boolean>();
                 HashMap<Integer, Boolean> nusedregs = new HashMap<Integer, Boolean>();
 			    double avgy = 0.0;
@@ -570,8 +587,8 @@ public class NodeEditor extends JFrame implements ActionListener
 			        if (pnt.getX() > maxx)
 			        {
 			            maxx = pnt.getX();
-			        }			     
-			        usedregs.put(pnode.getRegister(), true);   
+			        }
+			        usedregs.put(pnode.getRegister(), true);
 			    }
 			    for (int i = 0; i < numcomm; i++)
 			    {
@@ -580,7 +597,7 @@ public class NodeEditor extends JFrame implements ActionListener
 			        if (pnt.getX() > maxx)
 			        {
 			            maxx = pnt.getX();
-			        }			        
+			        }
 			    }
 			    if (numcomm+numnodes != 0)
 			    {
@@ -594,8 +611,8 @@ public class NodeEditor extends JFrame implements ActionListener
 			        if (pnt.getX() < minx)
 			        {
 			            minx = pnt.getX();
-			        }			        
-			        nusedregs.put(pnode.getRegister(), true); 
+			        }
+			        nusedregs.put(pnode.getRegister(), true);
 			    }
 			    for (int i = 0; i < numnewcomm; i++)
 			    {
@@ -604,20 +621,20 @@ public class NodeEditor extends JFrame implements ActionListener
 			        if (pnt.getX() < minx)
 			        {
 			            minx = pnt.getX();
-			        }			        
+			        }
 			    }
 			    if (numnewcomm+numnewnodes != 0)
 			    {
 			        newavgy = newavgy/(numnewcomm+numnewnodes);
 			    }
-			    
+
 			    for (Integer v : remapregs.values())
 			    {
 			        if (v>0){
 			            usedregs.put(v, true);
 			        }
 			    }
-			    
+
 			    int r = 1;
 			    for (Integer k : remapregs.keySet())
 			    {
@@ -638,7 +655,7 @@ public class NodeEditor extends JFrame implements ActionListener
 			            }
 			        }
 			    }
-			    
+
 			    double dx = maxx-minx+5+Node.getNodeSize();
 			    double dy = avgy-newavgy;
 			    for (int i = 0; i < numnewnodes; i++)
@@ -646,17 +663,17 @@ public class NodeEditor extends JFrame implements ActionListener
 			        Node pnode = ((Node)fd.getNodes().get(i));
 			        Point pnt = pnode.getLocation();
 			        pnt.setLocation(pnt.getX()+dx, pnt.getY()+dy);
-			        pnode.setLocation(pnt);		
+			        pnode.setLocation(pnt);
 			        if (remapregs.containsKey(pnode.getRegister()))
 			        {
 			            pnode.setRegister(remapregs.get(pnode.getRegister()));
-			        }        
+			        }
 			    }
 			    for (int i = 0; i < numnewcomm; i++)
 			    {
 			        Point pnt = ((Comment)fd.getComments().get(i)).getP();
 			        pnt.setLocation(pnt.getX()+dx, pnt.getY()+dy);
-			        ((Comment)fd.getComments().get(i)).setP(pnt);	
+			        ((Comment)fd.getComments().get(i)).setP(pnt);
 			    }
 				macPanel.nodes.addAll(fd.getNodes());
 				macPanel.comments.addAll(fd.getComments());
@@ -666,7 +683,7 @@ public class NodeEditor extends JFrame implements ActionListener
 		else if (e.getSource() == importRegisters)
 		{
 			FileData fd = new FileData();
-			
+
 			if (fd.load())
 			{
 			    int oldInput = re.regInputNum;
@@ -674,7 +691,7 @@ public class NodeEditor extends JFrame implements ActionListener
 				re.regInputNum = fd.getRegInput();
 				re.otherRegs = fd.getOtherRegs();
 				re.setRegisterInput(oldInput);
-				simulator.setInputNumberText();
+				//simulator.setInputNumberText();
 				repaint();
 				re.repaint();
 			}
@@ -696,11 +713,11 @@ public class NodeEditor extends JFrame implements ActionListener
 				"Remapping registers when importing machines changes registers used in the imported machine to the ones specified\n" +
 				"You can use the term \"all\" when remapping registers to change all nodes' registers using one rule (excludes an registers with their own rules)\n" +
 				"You can remap a register to 0 to have it be set to the first register not already in use\n\n" +
-				"Program by Stanley Bak, April 2006 \n" + 
-				"Modified by Martin Papesh, May 2012\n" + 
+				"Program by Stanley Bak, April 2006 \n" +
+				"Modified by Martin Papesh, May 2012\n" +
 				"Modified by Nevin Jacob, May 2017",
-				"Help", 
-				JOptionPane.INFORMATION_MESSAGE);		
+				"Help",
+				JOptionPane.INFORMATION_MESSAGE);
 			/*JOptionPane.showMessageDialog(null,
 				"To set an initial state: Double click a node when in modification mode.\n" +
 				"To change a state's register: Double click a node when in modification mode.\n" +
@@ -715,10 +732,10 @@ public class NodeEditor extends JFrame implements ActionListener
 				"Remapping registers when importing machines changes registers used in the imported machine to the ones specified\n" +
 				"You can use the term \"all\" when remapping registers to change all nodes' registers using one rule (excludes an registers with their own rules)\n" +
 				"You can remap a register to 0 to have it be set to the first register not already in use\n\n" +
-				"Program by Stanley Bak, April 2006 \n" + 
-				"Modified by Martin Papesh, May 2012\n" + 
+				"Program by Stanley Bak, April 2006 \n" +
+				"Modified by Martin Papesh, May 2012\n" +
 				"Modified by Nevin Jacob, May 2017",
-				"Help", 
+				"Help",
 				JOptionPane.INFORMATION_MESSAGE);		*/
 		}
 		else if (e.getSource() == saveMachine)
@@ -739,7 +756,7 @@ public class NodeEditor extends JFrame implements ActionListener
 				fd.setRegInput(re.regInputNum);
 				fd.setOtherRegs(re.otherRegs);
                 fd.setComments(macPanel.comments);
-				
+
 				fd.save();
 			}
 		}
@@ -780,7 +797,7 @@ public class NodeEditor extends JFrame implements ActionListener
 			{
 	            int regNum = regSet.indexOf(e.getSource());
 	    	    boolean RIrv = re.setRegisterInput(regNum);
-	    	    simulator.setInputNumberText();
+	    	    //simulator.setInputNumberText();
 			}
 	    }
 	}
